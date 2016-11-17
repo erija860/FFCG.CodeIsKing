@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFCG.G5.Painter.Tests", "FFCG.G5.Painter.Tests\FFCG.G5.Painter.Tests.csproj", "{E7DC6864-DD6E-4099-925F-D9601916C937}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFCG.G5.Painter", "FFCG.G5.Painter\FFCG.G5.Painter.csproj", "{C522F3C5-B219-4A4E-A12F-C2D3537347AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFCG.G5.Painter.GUI", "FFCG.G5.Painter.GUI\FFCG.G5.Painter.GUI.csproj", "{162D0D3B-0210-48FA-9E90-FA440DBE16EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFCG.G5.Painter.InputOutput", "FFCG.G5.Painter.InputOutput\FFCG.G5.Painter.InputOutput.csproj", "{036895CF-7C3E-4F88-9057-B93FAEE171A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFCG.G5.Painter.PaintShop.Tests", "FFCG.G5.Painter.PainterShop.Tester\FFCG.G5.Painter.PaintShop.Tests.csproj", "{11952CA0-507E-4EBF-A288-8446A9091025}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E7DC6864-DD6E-4099-925F-D9601916C937}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7DC6864-DD6E-4099-925F-D9601916C937}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7DC6864-DD6E-4099-925F-D9601916C937}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7DC6864-DD6E-4099-925F-D9601916C937}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C522F3C5-B219-4A4E-A12F-C2D3537347AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C522F3C5-B219-4A4E-A12F-C2D3537347AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C522F3C5-B219-4A4E-A12F-C2D3537347AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C522F3C5-B219-4A4E-A12F-C2D3537347AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{162D0D3B-0210-48FA-9E90-FA440DBE16EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{162D0D3B-0210-48FA-9E90-FA440DBE16EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{162D0D3B-0210-48FA-9E90-FA440DBE16EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{162D0D3B-0210-48FA-9E90-FA440DBE16EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{036895CF-7C3E-4F88-9057-B93FAEE171A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{036895CF-7C3E-4F88-9057-B93FAEE171A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{036895CF-7C3E-4F88-9057-B93FAEE171A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{036895CF-7C3E-4F88-9057-B93FAEE171A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11952CA0-507E-4EBF-A288-8446A9091025}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11952CA0-507E-4EBF-A288-8446A9091025}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11952CA0-507E-4EBF-A288-8446A9091025}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11952CA0-507E-4EBF-A288-8446A9091025}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
