@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFCG.G5.Storage", "FFCG.G5.Storage\FFCG.G5.Storage.csproj", "{1A8B8F0A-E531-460E-A70B-79990C65143D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFCG.G5.Storage.Tests", "FFCG.G5.Storage.Tests\FFCG.G5.Storage.Tests.csproj", "{26E5DDCE-2A22-4BC3-B74F-4E55510EBBE7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFCG.G5.Storage.Client", "FFCG.G5.Storage.Client\FFCG.G5.Storage.Client.csproj", "{12388116-92E1-453E-8D32-39C43A0BCAD8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{1A8B8F0A-E531-460E-A70B-79990C65143D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A8B8F0A-E531-460E-A70B-79990C65143D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A8B8F0A-E531-460E-A70B-79990C65143D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26E5DDCE-2A22-4BC3-B74F-4E55510EBBE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26E5DDCE-2A22-4BC3-B74F-4E55510EBBE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26E5DDCE-2A22-4BC3-B74F-4E55510EBBE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26E5DDCE-2A22-4BC3-B74F-4E55510EBBE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12388116-92E1-453E-8D32-39C43A0BCAD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12388116-92E1-453E-8D32-39C43A0BCAD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12388116-92E1-453E-8D32-39C43A0BCAD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12388116-92E1-453E-8D32-39C43A0BCAD8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
