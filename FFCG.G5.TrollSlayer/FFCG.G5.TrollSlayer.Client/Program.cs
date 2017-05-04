@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace FFCG.G5.TrollSlayer
+namespace FFCG.G5.TrollSlayer.Client
 {
     internal class Program
     {

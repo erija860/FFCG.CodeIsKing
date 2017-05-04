@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{EBB518C9-9660-46EE-ABC6-48EF7032C743}</ProjectGuid>
+    <ProjectGuid>{7F047B62-EA97-4DE0-918C-6BFFDFC2DE49}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>FFCG.G5.TrollSlayer</RootNamespace>
-    <AssemblyName>FFCG.G5.TrollSlayer</AssemblyName>
+    <RootNamespace>FFCG.G5.TrollSlayer.Client.Old</RootNamespace>
+    <AssemblyName>FFCG.G5.TrollSlayer.Client.Old</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

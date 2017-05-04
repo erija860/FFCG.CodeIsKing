@@ -7,7 +7,7 @@ namespace FFCG.G5.Storage.Client
     {
         public static void Main(string[] args)
         {
-            var storage = new FileStorage<Contact>(@"C:\TestStorage");
+            var storage = new FileStorage<Contact>(@"C:\Storage");
             while (true)
             {
                 Console.WriteLine("Enter number for action... \n" +
@@ -29,6 +29,7 @@ namespace FFCG.G5.Storage.Client
                         DeleteContact(storage);
                         break;
                 }
+                Console.WriteLine("");
             }
         }
 
