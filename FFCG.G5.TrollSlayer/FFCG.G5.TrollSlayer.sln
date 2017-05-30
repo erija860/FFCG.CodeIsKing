@@ -1,11 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26403.7
+VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFCG.G5.TrollSlayer.Client", "FFCG.G5.TrollSlayer.Client\FFCG.G5.TrollSlayer.Client.csproj", "{EBB518C9-9660-46EE-ABC6-48EF7032C743}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFCG.G5.TrollSlayer.Client.Old", "FFCG.G5.TrollSlayer.Old\FFCG.G5.TrollSlayer.Client.Old.csproj", "{7F047B62-EA97-4DE0-918C-6BFFDFC2DE49}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFCG.G5.TrollSlayer.Old", "FFCG.G5.TrollSlayer.Old\FFCG.G5.TrollSlayer.Old.csproj", "{7F047B62-EA97-4DE0-918C-6BFFDFC2DE49}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFCG.G5.TrollSlayer", "FFCG.G5.TrollSlayer\FFCG.G5.TrollSlayer.csproj", "{852C9E6B-4F12-4C78-8586-82540D89FF46}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TrollSlayer", "TrollSlayer", "{F2F022C0-4873-4232-807C-EB044224DF2F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFCG.G5.TrollSlayer.Tests", "FFCG.G5.TrollSlayer.Tests\FFCG.G5.TrollSlayer.Tests.csproj", "{156A6023-8E1F-4BE4-BAB4-3418ACFE4085}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,8 +27,20 @@ Global
 		{7F047B62-EA97-4DE0-918C-6BFFDFC2DE49}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7F047B62-EA97-4DE0-918C-6BFFDFC2DE49}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7F047B62-EA97-4DE0-918C-6BFFDFC2DE49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{852C9E6B-4F12-4C78-8586-82540D89FF46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{852C9E6B-4F12-4C78-8586-82540D89FF46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{852C9E6B-4F12-4C78-8586-82540D89FF46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{852C9E6B-4F12-4C78-8586-82540D89FF46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{156A6023-8E1F-4BE4-BAB4-3418ACFE4085}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{156A6023-8E1F-4BE4-BAB4-3418ACFE4085}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{156A6023-8E1F-4BE4-BAB4-3418ACFE4085}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{156A6023-8E1F-4BE4-BAB4-3418ACFE4085}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{852C9E6B-4F12-4C78-8586-82540D89FF46} = {F2F022C0-4873-4232-807C-EB044224DF2F}
+		{156A6023-8E1F-4BE4-BAB4-3418ACFE4085} = {F2F022C0-4873-4232-807C-EB044224DF2F}
 	EndGlobalSection
 EndGlobal

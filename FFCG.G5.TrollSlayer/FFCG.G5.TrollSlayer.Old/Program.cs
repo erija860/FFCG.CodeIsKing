@@ -13,7 +13,6 @@ namespace FFCG.G5.TrollSlayer.Client.Old
                 Console.ReadLine();
 
                 var player = new Player();
-                var randomNumber = Dice.Roll(6);
                 var walkedWeters = 0;
                 Console.WriteLine("You enter a cave...");
 

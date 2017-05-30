@@ -1,129 +1,78 @@
 ﻿using System;
 using System.Linq;
+using Autofac;
+using Autofac.Features.ResolveAnything;
 
 namespace FFCG.G5.TrollSlayer.Client
 {
     internal class Program
     {
+        private static IContainer Container { get; set; }
+
         private static void Main()
         {
-            while (true)
+            Setup();
+            using (var scope = Container.BeginLifetimeScope())
             {
-                Console.WriteLine("Press Enter to start a new game...");
-                Console.ReadLine();
-
-                var player = new Player();
-                var randomNumber = Dice.Roll(6);
-                var walkedWeters = 0;
-                Console.WriteLine("You enter a cave...");
-
-                var meters = Dice.Roll(50);
-                Console.WriteLine($"You walked {meters} meters ");
-                walkedWeters += meters;
-
-                Console.WriteLine("Du hittar vapen och kläder och får 40hp och 10str");
-                player.HealthPoints += 40;
-                player.Strength += 10;
-
-                var trollHp = 20;
-                var trollStr = 10;
-
-
-                while (player.HealthPoints > 0)
+                while (true)
                 {
-                    meters = Dice.Roll(50);
-                    Console.WriteLine($"You walked {meters} meters ");
-                    walkedWeters += meters;
-
-                    if (meters % 5 == 0)
-                    {
-                        var newStrength = Dice.Roll(5);
-                        player.Strength += newStrength;
-                        Console.WriteLine($"Player gets {newStrength} added strength");
-                    }
-
-                    var troll = new Player();
-                    trollHp += 2;
-                    trollStr += 1;
-                    troll.HealthPoints = Dice.Roll(trollHp);
-                    troll.Strength = Dice.Roll(trollStr);
-                    Console.WriteLine($"You encounter a troll!!! It has HP:{troll.HealthPoints}, Str:{troll.Strength}");
-
-                    var bothIsAlive = true;
-                    var activePlayer = player;
-                    var receivingPlayer = troll;
-
-                    while (bothIsAlive)
-                    {
-                        var hitStrength = Dice.Roll(activePlayer.Strength);
-
-                        if (activePlayer.Name == "player")
-                            if (hitStrength % 3 == 0)
-                                hitStrength = hitStrength * 2;
-
-                        Console.WriteLine(
-                            $"{activePlayer.Name} hit the {receivingPlayer.Name} with {hitStrength} hit strength");
-
-                        Console.WriteLine($"The  {receivingPlayer.Name} loses {hitStrength} health");
-                        receivingPlayer.HealthPoints -= hitStrength;
-
-                        if (receivingPlayer.HealthPoints <= 0)
-                        {
-                            bothIsAlive = false;
-                            Console.WriteLine($"{receivingPlayer.Name} died...");
-                        }
-
-                        var tempActive = activePlayer;
-                        activePlayer = receivingPlayer;
-                        receivingPlayer = tempActive;
-                    }
-
-                    var newHp = Dice.Roll(20);
-                    Console.WriteLine($"You eat the trolls ear and get {newHp}hp");
-                    player.HealthPoints += newHp;
-
-                    if (walkedWeters >= 1000)
-                    {
-                        Console.WriteLine(
-                            $"You survived!! You have {player.HealthPoints}hp and {player.Strength}strength");
-                        break;
-                    }
+                    Console.WriteLine("Press Enter to start a new game...");
+                    Console.ReadLine();
+                    var newgame = scope.Resolve<TrollSlayerStoryGame>();
+                    newgame.RunNewRound(scope.Resolve<IPlayer>());
                 }
-                if (player.HealthPoints <= 0)
-                    Console.WriteLine($"You died after {walkedWeters} meters");
             }
+        }
+
+        private static void Setup()
+        {
+            var builder = new ContainerBuilder();
+            builder.RegisterType<Dice>().As<IDice>();
+            builder.RegisterType<ConsoleLogger>().As<ILogger>();
+            builder.RegisterType<PlayerStartupRule>().As<IPlayerStartupRule>();
+            builder.RegisterType<TrollFactory>().As<ITrollFactory>().InstancePerDependency();
+            builder.RegisterType<TrollStatsChangeRule>().As<ITrollStatsChangeRule>();
+            builder.RegisterType<TrollStartupRule>().As<ITrollStartupRule>();
+            builder.Register(c => new PlayerLogWrapper(new Player(c.Resolve<IPlayerStartupRule>()), c.Resolve<ILogger>())).As<IPlayer>()
+                .InstancePerDependency();
+            builder.RegisterSource(new AnyConcreteTypeNotAlreadyRegisteredSource());
+            Container = builder.Build();
         }
     }
 
-    public static class Dice
+    public interface IDependencyResolver
     {
-        public static int Roll(int sides) => Enumerable.Range(1, sides).OrderBy(x => Guid.NewGuid()).First();
+        T Resolve<T>() where T : class;
     }
 
-    public class Player : IBattleReady, IWalker
+    public class DependencyResolver : IDependencyResolver
     {
-        public string Name => "player";
-        public int HealthPoints { get; set; }
-        public int Strength { get; set; }
-        public int WalkedMeters { get; set; }
+        private readonly IContainer _container;
+
+        public DependencyResolver(IContainer container)
+        {
+            this._container = container;
+        }
+
+        public T Resolve<T>() where T : class
+        {
+            return _container.Resolve<T>();
+        }
     }
 
-    public class Troll : IBattleReady
+    public class Dice : IDice
     {
-        public string Name => "troll";
-        public int HealthPoints { get; set; }
-        public int Strength { get; set; }
+        public int Roll(int sides)
+        {
+            return Enumerable.Range(1, sides).OrderBy(x => Guid.NewGuid()).First();
+        }
     }
 
-    public interface IBattleReady
+    public class ConsoleLogger : ILogger
     {
-        string Name { get; }
-        int HealthPoints { get; set; }
-        int Strength { get; set; }
-    }
-
-    public interface IWalker
-    {
-        int WalkedMeters { get; set; }
+        public void Log(string message)
+        {
+            Console.WriteLine(message);
+        }
     }
 }
