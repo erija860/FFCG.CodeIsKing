@@ -50,7 +50,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Extensions\When_eating_trolls_ear.cs" />
+    <Compile Include="GameEngine\When_fighting_a_battle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestableDice.cs" />
+    <Compile Include="TestableLogger.cs" />
+    <Compile Include="GameEngine\When_running_a_new_game.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FFCG.G5.TrollSlayer\FFCG.G5.TrollSlayer.csproj">
@@ -60,6 +65,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Characters\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

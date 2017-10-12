@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{852C9E6B-4F12-4C78-8586-82540D89FF46}</ProjectGuid>
+    <ProjectGuid>{4EE74138-CE08-4648-AC22-ADE39288EA4E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FFCG.G5.TrollSlayer</RootNamespace>
-    <AssemblyName>FFCG.G5.TrollSlayer</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <RootNamespace>FFCG.G5.GameOfLife.Tests</RootNamespace>
+    <AssemblyName>FFCG.G5.GameOfLife.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -30,6 +30,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FluentAssertions, Version=4.19.4.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentAssertions.4.19.4\lib\net45\FluentAssertions.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentAssertions.Core, Version=4.19.4.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentAssertions.4.19.4\lib\net45\FluentAssertions.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=3.8.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.3.8.1\lib\net45\nunit.framework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,30 +49,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Rules\CharacterCriticalStrikeRule.cs" />
-    <Compile Include="Rules\ICharacterCriticalStrikeRule.cs" />
-    <Compile Include="GameEngine\Battle.cs" />
-    <Compile Include="Rules\ICharacterStartupRule.cs" />
-    <Compile Include="Characters\IFighter.cs" />
-    <Compile Include="Interfaces\IDice.cs" />
-    <Compile Include="Interfaces\ILogger.cs" />
-    <Compile Include="Characters\IPlayableCharacter.cs" />
-    <Compile Include="Characters\IPlayer.cs" />
-    <Compile Include="Rules\IPlayerEquipmentRule.cs" />
-    <Compile Include="Characters\ITroll.cs" />
-    <Compile Include="Characters\ITrollFactory.cs" />
-    <Compile Include="Rules\ITrollStartupRule.cs" />
-    <Compile Include="Rules\ITrollStatsChangeRule.cs" />
-    <Compile Include="Extensions\PlayableCharacterExtensions.cs" />
-    <Compile Include="Characters\Player.cs" />
-    <Compile Include="Rules\PlayerEquipmentRule.cs" />
-    <Compile Include="Characters\Troll.cs" />
-    <Compile Include="Characters\TrollFactory.cs" />
-    <Compile Include="GameEngine\TrollSlayerStoryGame.cs" />
+    <Compile Include="CellLiveRuleTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Rules\TrollStartupRule.cs" />
-    <Compile Include="Rules\TrollStatsChangeRule.cs" />
+    <Compile Include="When_running_blinker_oscillator_pattern.cs" />
+    <Compile Include="When_running_block_still_life_pattern_in_a_corner.cs" />
+    <Compile Include="When_toggling_cell_status.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FFCG.G5.GameOfLife\FFCG.G5.GameOfLife.csproj">
+      <Project>{86596f68-c518-4b99-ae29-62a393278241}</Project>
+      <Name>FFCG.G5.GameOfLife</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

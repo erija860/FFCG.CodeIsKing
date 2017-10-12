@@ -2,6 +2,10 @@
 using System.Linq;
 using Autofac;
 using Autofac.Features.ResolveAnything;
+using FFCG.G5.TrollSlayer.Characters;
+using FFCG.G5.TrollSlayer.GameEngine;
+using FFCG.G5.TrollSlayer.Interfaces;
+using FFCG.G5.TrollSlayer.Rules;
 
 namespace FFCG.G5.TrollSlayer.Client
 {
@@ -18,8 +22,8 @@ namespace FFCG.G5.TrollSlayer.Client
                 {
                     Console.WriteLine("Press Enter to start a new game...");
                     Console.ReadLine();
-                    var newgame = scope.Resolve<TrollSlayerStoryGame>();
-                    newgame.RunNewRound(scope.Resolve<IPlayer>());
+                    var game = scope.Resolve<TrollSlayerStoryGame>();
+                    game.Run();
                 }
             }
         }
@@ -27,14 +31,21 @@ namespace FFCG.G5.TrollSlayer.Client
         private static void Setup()
         {
             var builder = new ContainerBuilder();
+
+            //Utils
             builder.RegisterType<Dice>().As<IDice>();
             builder.RegisterType<ConsoleLogger>().As<ILogger>();
-            builder.RegisterType<PlayerStartupRule>().As<IPlayerStartupRule>();
+
+            //Characters
             builder.RegisterType<TrollFactory>().As<ITrollFactory>().InstancePerDependency();
+            builder.RegisterType<Player>().As<IPlayer>().InstancePerDependency();
+
+            //Rules
             builder.RegisterType<TrollStatsChangeRule>().As<ITrollStatsChangeRule>();
             builder.RegisterType<TrollStartupRule>().As<ITrollStartupRule>();
-            builder.Register(c => new PlayerLogWrapper(new Player(c.Resolve<IPlayerStartupRule>()), c.Resolve<ILogger>())).As<IPlayer>()
-                .InstancePerDependency();
+            builder.RegisterType<PlayerEquipmentRule>().As<IPlayerEquipmentRule>();
+            builder.RegisterType<CharacterCriticalStrikeRule>().As<ICharacterCriticalStrikeRule>();
+
             builder.RegisterSource(new AnyConcreteTypeNotAlreadyRegisteredSource());
             Container = builder.Build();
         }
@@ -51,7 +62,7 @@ namespace FFCG.G5.TrollSlayer.Client
 
         public DependencyResolver(IContainer container)
         {
-            this._container = container;
+            _container = container;
         }
 
         public T Resolve<T>() where T : class

@@ -1,4 +1,4 @@
-namespace FFCG.G5.TrollSlayer
+namespace FFCG.G5.TrollSlayer.Interfaces
 {
     public interface ILogger
     {
