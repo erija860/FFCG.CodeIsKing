@@ -1,4 +1,4 @@
-namespace FFCG.G5.GameOfLife
+namespace FFCG.G5.GameOfLife.Rules
 {
     public interface ICellLiveRule
     {

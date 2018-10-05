@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using FFCG.G5.GameOfLife.Rules;
 using FluentAssertions;
 using NUnit.Framework;
 

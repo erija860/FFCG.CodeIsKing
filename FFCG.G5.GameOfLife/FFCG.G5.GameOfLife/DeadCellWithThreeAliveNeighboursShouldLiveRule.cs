@@ -1,4 +1,6 @@
-﻿namespace FFCG.G5.GameOfLife
+﻿using FFCG.G5.GameOfLife.Rules;
+
+namespace FFCG.G5.GameOfLife
 {
     public class DeadCellWithThreeAliveNeighboursShouldLiveRule : ICellLiveRule
     {

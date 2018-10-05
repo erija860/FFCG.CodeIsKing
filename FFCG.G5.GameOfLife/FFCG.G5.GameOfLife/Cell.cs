@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using FFCG.G5.GameOfLife.Rules;
 
 namespace FFCG.G5.GameOfLife
 {
